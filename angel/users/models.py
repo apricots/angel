@@ -10,3 +10,8 @@ class UserProfile(models.Model):
     picture = models.ImageField(upload_to='profile_images', blank=True, help_text='Your pretty face')
 
     pushover_key = models.CharField(max_length=256, help_text='account key from pushover')
+
+    friends = models.ManyToManyField(User, blank=True, null=True, help_text='A trusted friend')
+
+    def __unicode__(self):
+        return str(self.user)

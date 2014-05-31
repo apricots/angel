@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}View Outfit Rating{% endblock %}
+
+{% block body %}
+    THis is where you can watch real time outfit ratings as they come in...
+    (will be loaded with all outfits, also, be listening for new outfits from pubnub)
+
+
+    <div>
+        <img src="{{ outfit.picture.url }}" style="max-width: 100px; max-height: 100px"/>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Create an Outfit{% endblock %}
+
+{% block body %}
+    <h1>Send an Outfit to your trusted friends!</h1>
+
+    <form method="POST" action="{% url 'create_outfit' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        Take or choose a photo
+        <input type="file" name="picture"/><br/>
+        Add an optional message
+        <input type="text" name="message"/><br/>
+        <input type="submit" />
+    </form>
+
+{% endblock %}

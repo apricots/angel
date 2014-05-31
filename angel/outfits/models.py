@@ -18,5 +18,5 @@ class OutfitRating(BaseModel):
     comment = models.CharField(max_length='256', blank=True, help_text='Comment to include with rating')
     outfit = models.ForeignKey('Outfit', help_text='Outfit being rated')
 
-    # isexpired ... check for date_created + 2 min
+    # is_expired ... check for date_created + 2 min
 
