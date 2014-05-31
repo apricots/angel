@@ -15,13 +15,18 @@
 </head>
 
 <body>
-    <div>
-        {% block body %}
-        {% endblock %}
-    </div>
-
-    {% block javascript %}
+<ul>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+    {% endif %}
+</ul>
+<div>
+    {% block body %}
     {% endblock %}
+</div>
+
+{% block javascript %}
+{% endblock %}
 
 </body>
 </html>
