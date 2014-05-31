@@ -1,2 +1,3 @@
 *.pyc
 .vagrant/*
+angel/.idea/*
