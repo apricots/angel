@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 from unipath import Path
 from os import path, environ
 
-BASE_DIR = path.dirname(os.path.dirname(__file__))
+BASE_DIR = path.dirname(path.dirname(__file__))
 
 
 def get_env_variable(var_name):
