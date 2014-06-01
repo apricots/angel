@@ -1,1 +1,1 @@
-web: gunicorn angel.wsgi
+web: gunicorn angel.angel.wsgi
