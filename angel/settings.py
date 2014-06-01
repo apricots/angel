@@ -142,16 +142,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
-# Static asset configuration
-
-BASE_DIR = path.dirname(path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    path.join(BASE_DIR, '../static'),
-)
-
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 
