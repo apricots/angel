@@ -1,4 +1,4 @@
-from .base import *
+from .angel.settings.base import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

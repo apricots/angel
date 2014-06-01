@@ -1,4 +1,4 @@
-from base import *
+from angel.settings.base import *
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
