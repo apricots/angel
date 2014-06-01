@@ -52,6 +52,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'south',
+    'storages',
+    'boto',
     'users',
     'outfits',
 )
@@ -165,10 +167,9 @@ ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 
-BASE_DIR = path.dirname(path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    path.join(BASE_DIR, '../angel/static'),
-)
+AWS_STORAGE_BUCKET_NAME = 'angelhack2014'
+AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_ACCESS_KEY']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = S3_URL
