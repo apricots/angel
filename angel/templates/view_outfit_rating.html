@@ -36,16 +36,25 @@
             channel: 'rate-outfit-{{ outfit.id }}',
             count: 100,
             callback: function (m) {
-                console.log(m)
+                $.each(m[0], function(idx, val){get_msg(val);})
             }
         });
+
+        function get_msg(m) {
+            var res = m.split(':');
+            var name = res[0];
+            var rating = res[1];
+            var message = res[2];
+
+            var div = document.getElementById('ratings');
+
+            div.innerHTML = div.innerHTML + '<div><h3>' + name + ' | ' + rating + ' | ' + message + '</h3<div>';
+        }
 
         // Subscribe to a channel
         pubnub.subscribe({
             channel: 'rate-outfit-{{ outfit.id }}',
-            message: function (m) {
-                console.log(m)
-            }
+            message: get_msg
         });
 
     </script>
