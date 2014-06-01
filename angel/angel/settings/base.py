@@ -99,7 +99,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Pages that require auth will redirect here when user is not authenticated
-LOGIN_URL = '/about/'
+LOGIN_URL = '/login/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"

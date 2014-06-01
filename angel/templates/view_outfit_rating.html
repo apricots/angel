@@ -3,11 +3,50 @@
 {% block title %}View Outfit Rating{% endblock %}
 
 {% block body %}
-    THis is where you can watch real time outfit ratings as they come in...
-    (will be loaded with all outfits, also, be listening for new outfits from pubnub)
-
+    <h1>Wait for ratings on your outfit...</h1>
 
     <div>
-        <img src="{{ outfit.picture.url }}" style="max-width: 100px; max-height: 100px"/>
+        <img src="{{ outfit.picture.url }}" style="max-width: 300px; max-height: 300px"/>
     </div>
+
+    <div id="ratings">
+
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+
+    <script>
+        var pubnub = PUBNUB.init({
+            publish_key: "{{ pubnub_publish_key }}",
+            subscribe_key: "{{ pubnub_subscribe_key }}"
+        });
+
+        pubnub.time(
+                function (time) {
+                    console.log(time); // examples ;)
+                }
+        );
+
+
+        pubnub.history({
+            channel: 'rate-outfit-{{ outfit.id }}',
+            count: 100,
+            callback: function (m) {
+                console.log(m)
+            }
+        });
+
+        // Subscribe to a channel
+        pubnub.subscribe({
+            channel: 'rate-outfit-{{ outfit.id }}',
+            message: function (m) {
+                console.log(m)
+            }
+        });
+
+    </script>
 {% endblock %}
