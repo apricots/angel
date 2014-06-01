@@ -149,8 +149,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../static'),
 )
 
-from angel.settings.base import *
-
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 
