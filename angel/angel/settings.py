@@ -10,14 +10,14 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from unipath import Path
-import os
+from os import path, environ
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = path.dirname(os.path.dirname(__file__))
 
 
 def get_env_variable(var_name):
     try:
-        return os.environ[var_name]
+        return environ[var_name]
     except KeyError:
         error_msg = "Set the %s enviroment variable" % var_name
         raise ImproperlyConfigured(error_msg)
@@ -37,10 +37,10 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 ### Set the path to our current one
-PROJECT_DIR = Path(__file__).ancestor(3)       ### root of the project
-MEDIA_DIR = PROJECT_DIR.child('media')         ### where dynamic media (user uploads) are stored
+PROJECT_DIR = Path(__file__).ancestor(3)  ### root of the project
+MEDIA_DIR = PROJECT_DIR.child('media')  ### where dynamic media (user uploads) are stored
 TEMPLATE_DIR = PROJECT_DIR.child('templates')  ### where our templates are stored
-STATIC_MEDIA_DIR = PROJECT_DIR.child('static') ### where our static media is stored
+STATIC_MEDIA_DIR = PROJECT_DIR.child('static')  ### where our static media is stored
 
 # Application definition
 
@@ -124,7 +124,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'angel', 'static'),
+    path.join(PROJECT_DIR, 'angel', 'static'),
 )
 
 # Parse database configuration from $DATABASE_URL
@@ -141,13 +141,13 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+BASE_DIR = path.dirname(path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../static'),
+    path.join(BASE_DIR, '../static'),
 )
 
 # Parse database configuration from $DATABASE_URL
@@ -164,11 +164,11 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+BASE_DIR = path.dirname(path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../static'),
+    path.join(BASE_DIR, '../static'),
 )
