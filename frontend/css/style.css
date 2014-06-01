@@ -143,6 +143,7 @@ a{
 
 .login-bg{
   background-color: #BDBDBD;
+  padding-bottom:50px;
 }
 
 .login-social{
@@ -169,6 +170,18 @@ a{
 
 .bottom-icons{
   margin: 0 auto;
+  display: block;
+}
+
+.sign-in-button{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+
+.log-user{
+  text-align: center;
+    margin: 0 auto;
   display: block;
 }
 
