@@ -170,5 +170,5 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    path.join(BASE_DIR, '../static'),
+    path.join(BASE_DIR, '../angel/static'),
 )
